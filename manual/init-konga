@@ -1,0 +1,14 @@
+#!/bin/bash
+
+docker run -d --rm --name konga \
+--network=kong-net \
+-p 1337:1337 \
+-e "DB_ADAPTER=postgres" \
+-e "DB_HOST=kong-database" \
+-e "DB_USER=user" \
+-e "DB_PASSWORD=12345" \
+-e "DB_DATABASE=konga_db" \
+-e "TOKEN_SECRET=g4r4md1l4uTl3b1h45indAr1p4d4g4r4mRum4h" \
+-e "KONGA_HOOK_TIMEOUT=120000" \
+-e "NODE_ENV=production" \
+pantsel/konga:next
